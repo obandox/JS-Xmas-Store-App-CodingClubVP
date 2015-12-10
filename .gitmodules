@@ -1,0 +1,3 @@
+[submodule "plugins/wizard"]
+	path = plugins/wizard
+	url = https://github.com/MoNoApps/wizard.git

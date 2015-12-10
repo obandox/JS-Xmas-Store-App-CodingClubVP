@@ -1,0 +1,197 @@
+{
+  "dburl": "mongodb://127.0.0.1/coreapp",
+  "site": "Core App",
+  "theme": "/themes/paper.min.css",
+  "port": {
+    "web": 1344,
+    "api": 1345,
+    "rds": 6379
+  },
+  "mandril":{
+    "from": "noreply@wrine.co",
+    "name": "Core App",
+    "token": ""
+  },
+  "ALLOW": ["127.0.0.1"],
+  "TTL": 84000,
+  "URL": {
+    "BASE": "http://core.wrine.co",
+    "ACK": "/api/email/confirm/",
+    "REC": "/api/email/recover/"
+  },
+  "APIVARS": {
+    "PRE": "/",
+    "ID": "/:id",
+    "PLUGINS": {
+      "DIR":"/plugins",
+      "MAIN": "/plugin.js",
+      "VIEWS": "/views",
+      "CONFIG": "/config.json"
+    }
+  },
+  "plugins": [
+    "wizard"
+  ],
+  "pages":[
+    "account",
+    "recover",
+    "registered",
+    "docs",
+    "dev"],
+  "resources": {
+    "tokens": {
+      "admin": true,
+      "param": "token",
+      "exclude": true
+    },
+    "settings": {
+      "admin": false,
+      "param": "setting",
+      "exclude": true
+    },
+    "users": {
+      "admin": true,
+      "param": "user",
+      "clean": {"password": 1},
+      "schema": {
+        "name":  1,
+        "date": 1,
+        "email": 1,
+        "status": 1,
+        "role": 1
+      }
+    },
+    "groups": {
+      "desc": "groups",
+      "param": "group",
+      "exclude": false,
+      "clean": {},
+      "schema": {
+        "name": {
+          "tag": "input",
+          "type": "text",
+          "active": true,
+          "text": "Name",
+          "name": "name",
+          "placeholder": "Group Name",
+          "required": true,
+          "autocomplete": true,
+          "autofocus": true,
+          "min": 1,
+          "max": 40
+        }
+      }
+    },
+    "roles": {
+      "desc": "roles",
+      "param": "role",
+      "admin": false,
+      "exclude": false,
+      "clean": {},
+      "schema": {
+        "name": {
+          "tag": "input",
+          "type": "text",
+          "active": true,
+          "text": "Role Name",
+          "name": "name",
+          "placeholder": "Role Name",
+          "required": true,
+          "autocomplete": true,
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "tasks": {
+      "desc": "tasks",
+      "admin": false,
+      "exclude": false,
+      "param": "task",
+      "clean": {},
+      "schema": {
+        "name": {
+          "tag": "input",
+          "type": "text",
+          "active": true,
+          "text": "Task Name",
+          "name": "name",
+          "placeholder": "Task Name",
+          "required": true,
+          "min": 1,
+          "max": 100
+        },
+        "status": {
+          "tag": "select",
+          "type": "text",
+          "active": true,
+          "text": "status",
+          "text": "Task Status",
+          "name": "status"
+        }
+      }
+    },
+    "products": {
+      "desc": "products",
+      "admin": false,
+      "exclude": false,
+      "param": "product",
+      "clean": {},
+      "schema": {
+        "name": {
+          "tag": "input",
+          "type": "text",
+          "active": true,
+          "text": "Product Name",
+          "name": "name",
+          "placeholder": "Product Name"
+        },
+        "code": {
+          "tag": "input",
+          "type": "number",
+          "active": true,
+          "text": "Code",
+          "name": "code",
+          "placeholder": "Product Code",
+          "min": 0,
+          "value": "0"
+        },
+        "price": {
+          "tag": "input",
+          "type": "number",
+          "active": true,
+          "text": "Price",
+          "name": "price",
+          "placeholder": "Price",
+          "min": 0
+        },
+        "image": {
+          "tag": "input",
+          "type": "url",
+          "active": true,
+          "text": "Product Image",
+          "name": "image",
+          "required": false,
+          "value": "https://www.filepicker.io/api/file/XGVI0snoRVy8pziOBGSf/convert?w=500"
+        },
+        "comment": {
+          "tag": "input",
+          "type": "text",
+          "active": true,
+          "text": "Comment",
+          "name": "comment",
+          "placeholder": "Product Comment"
+        },
+        "taxes": {
+          "tag": "input",
+          "type": "text",
+          "active": true,
+          "text": "Taxes",
+          "name": "taxes",
+          "placeholder": "Taxes",
+          "min": 0
+        }
+      }
+    }
+  }
+}
